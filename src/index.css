@@ -100,3 +100,22 @@ code {
   grid-gap: 5px;
   align-self: flex-start;
 }
+
+.gameover-panel {
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.gameover-panel-hide {
+  display: none;
+}
+
+.gameover-h {
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
