@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 import Gridsquare from './GridSquare';
-import { useSelector } from 'react-redux';
+import { useSelector  } from 'react-redux';
 import { selectGrid } from './gridSlice';
 
 
@@ -11,7 +11,7 @@ export default function Grid() {
     for (let row = 0; row < 5; row ++) {
         grid.push([])
         for (let col = 0; col < 5; col ++) {
-            grid[row].push(<Gridsquare key={`${row}${col}`} color={array[row][col]} id={`${row}${col}`} />)
+            grid[row].push(<Gridsquare key={`${row}${col}`} color={array[row][col]} id={`${row}${col}`} array={array}/>)
         }
     }
 

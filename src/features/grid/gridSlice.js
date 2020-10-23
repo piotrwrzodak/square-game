@@ -26,7 +26,11 @@ export const gridSlice = createSlice({
     },
     reducers: {
       deleteSelected: (state, action) => {
-        
+        if ( action.payload.length > 1) {
+          for (let i = 0; i < action.payload.length; i++) {
+            state.array[action.payload[i].slice(0,1)][action.payload[i].slice(1,2)] = 0
+          }
+        }
       },
       lowerTheRest: (state, action) => {
         
@@ -42,5 +46,5 @@ export const gridSlice = createSlice({
   export const selectGrid = state => state.grid.array;
   
   export const { deleteSelected, lowerTheRest, generateNewOnes} = gridSlice.actions;
-
+  
   export default gridSlice.reducer;
