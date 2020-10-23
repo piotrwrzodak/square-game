@@ -11,10 +11,13 @@ export const scoreSlice = createSlice({
             state.value += action.payload;
         }
     },
+    resetValue: (state) => {
+        state.value = 0;
+    }
   },
 });
 
-export const { incrementByAmount } = scoreSlice.actions;
+export const { incrementByAmount, resetValue } = scoreSlice.actions;
 
 export const selectScore = state => state.score.value;
 

@@ -25,6 +25,9 @@ export const gridSlice = createSlice({
       array,
     },
     reducers: {
+      createNewArray: (state) => {
+        state.array = gridDefault();
+      },
       deleteSelected: (state, action) => {
         // if in array is only one square do nothing
         if ( action.payload.length > 1) {
@@ -77,6 +80,6 @@ export const gridSlice = createSlice({
 
   export const selectGrid = state => state.grid.array;
   
-  export const { deleteSelected, lowerTheRest} = gridSlice.actions;
+  export const { deleteSelected, lowerTheRest, createNewArray} = gridSlice.actions;
 
   export default gridSlice.reducer;

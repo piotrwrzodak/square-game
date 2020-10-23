@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react'
-import { useSelector  } from 'react-redux';
-import { selectGrid } from '../grid/gridSlice';
-import { selectScore } from '../score/scoreSlice';
+import { useSelector, useDispatch  } from 'react-redux';
+import { selectGrid, createNewArray } from '../grid/gridSlice';
+import { selectScore, resetValue } from '../score/scoreSlice';
 
 export default function Gameover() {
-    // set to one to load nicely
+    const dispatch = useDispatch()
     const [con, setCon] = useState(0)
     const array = useSelector(selectGrid)
     const score = useSelector(selectScore)
@@ -23,6 +23,11 @@ export default function Gameover() {
         setCon(connections)
     }
 
+    const handleClick = () => {
+        dispatch(resetValue());
+        dispatch(createNewArray());
+    }
+
     useEffect(() => {
         calculateIfGameOver(array);
     }, [array])
@@ -30,6 +35,7 @@ export default function Gameover() {
     return (
         <div className={!con && score !== 0 ? "gameover-panel" : "gameover-panel-hide"}>
             {!con && score !== 0 && <h1 className="gameover-h">Game over<br/>Your score: {score}</h1>}
+            <button className="play-again-btn" onClick={handleClick}>Play Again!</button>
         </div>
     )
 }
