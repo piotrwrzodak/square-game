@@ -7,11 +7,9 @@ import Gameover from './features/gameover/Gameover'
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
         <Score />
         <Grid />
         <Gameover />
-      </header>
     </div>
   );
 }
