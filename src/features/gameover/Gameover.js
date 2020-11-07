@@ -5,25 +5,24 @@ import { selectScore, resetValue } from '../score/scoreSlice';
 
 export default function Gameover() {
   const dispatch = useDispatch();
-  const [con, setCon] = useState(0);
   const array = useSelector(selectGrid);
   const score = useSelector(selectScore);
+  const [possibleMove, setPossibleMove] = useState(true);
 
   const calculateIfGameOver = (array) => {
-    let connections = 0;
     for (let row = 0; row < 5; row++) {
       for (let col = 0; col < 5; col++) {
         if (row + 1 < 5 ? array[row][col] === array[row + 1][col] : false)
-          connections++;
+          return true;
         if (row - 1 > -1 ? array[row][col] === array[row - 1][col] : false)
-          connections++;
+          return true;
         if (col + 1 < 5 ? array[row][col] === array[row][col + 1] : false)
-          connections++;
+          return true;
         if (col - 1 > -1 ? array[row][col] === array[row][col - 1] : false)
-          connections++;
+          return true;
       }
     }
-    setCon(connections);
+    return false;
   };
 
   const handleClick = () => {
@@ -32,14 +31,16 @@ export default function Gameover() {
   };
 
   useEffect(() => {
-    calculateIfGameOver(array);
+    setPossibleMove(calculateIfGameOver(array));
   }, [array]);
 
   return (
     <div
-      className={!con && score !== 0 ? 'gameover-panel' : 'gameover-panel-hide'}
+      className={
+        !possibleMove && score !== 0 ? 'gameover-panel' : 'gameover-panel-hide'
+      }
     >
-      {!con && score !== 0 && (
+      {!possibleMove && score !== 0 && (
         <h1 className="gameover-h">
           Game over
           <br />
