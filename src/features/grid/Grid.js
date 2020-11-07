@@ -1,25 +1,29 @@
-import React from 'react'
+import React from 'react';
 import Gridsquare from './GridSquare';
-import { useSelector  } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectGrid } from './gridSlice';
 
-
 export default function Grid() {
-    const array = useSelector(selectGrid);
+  const array = useSelector(selectGrid);
 
-    const grid = [] 
-    for (let row = 0; row < 5; row ++) {
-        grid.push([])
-        for (let col = 0; col < 5; col ++) {
-            grid[row].push(<Gridsquare key={`${row}${col}`} color={array[row][col]} id={`${row}${col}`} array={array}/>)
-        }
+  const grid = [];
+  for (let row = 0; row < 5; row++) {
+    grid.push([]);
+    for (let col = 0; col < 5; col++) {
+      grid[row].push(
+        <Gridsquare
+          key={`${row}${col}`}
+          color={array[row][col]}
+          id={`${row}${col}`}
+          array={array}
+        />
+      );
     }
+  }
 
-    return (
-        <div className="grid-wrap">
-            <div className='grid-board'>
-                {grid}
-            </div>
-        </div>
-    )
+  return (
+    <div className="grid-wrap">
+      <div className="grid-board">{grid}</div>
+    </div>
+  );
 }

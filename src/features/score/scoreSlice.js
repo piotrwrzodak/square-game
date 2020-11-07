@@ -7,18 +7,18 @@ export const scoreSlice = createSlice({
   },
   reducers: {
     incrementByAmount: (state, action) => {
-        if (action.payload > 1) {
-            state.value += action.payload;
-        }
+      if (action.payload > 1) {
+        state.value += action.payload;
+      }
     },
     resetValue: (state) => {
-        state.value = 0;
-    }
+      state.value = 0;
+    },
   },
 });
 
 export const { incrementByAmount, resetValue } = scoreSlice.actions;
 
-export const selectScore = state => state.score.value;
+export const selectScore = (state) => state.score.value;
 
 export default scoreSlice.reducer;
