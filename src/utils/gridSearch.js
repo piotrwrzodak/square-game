@@ -1,4 +1,4 @@
-export default function GridSearch(row, col, array) {
+export const gridSearch = (row, col, array) => {
   let index = row.concat(col);
   let listOfIndexes = [];
   let nodes = [];
@@ -56,4 +56,4 @@ export default function GridSearch(row, col, array) {
     nodes.shift();
   }
   return listOfIndexes;
-}
+};

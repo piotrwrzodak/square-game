@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectGrid, createNewArray } from '../grid/gridSlice';
-import { selectScore, resetValue } from '../score/scoreSlice';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { createNewArray, selectGrid } from '../store/slices/gridSlice';
+import { resetValue, selectScore } from '../store/slices/scoreSlice';
 
 export default function Gameover() {
   const dispatch = useDispatch();

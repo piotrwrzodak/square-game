@@ -1,7 +1,7 @@
 import React from 'react';
-import Gridsquare from './GridSquare';
 import { useSelector } from 'react-redux';
-import { selectGrid } from './gridSlice';
+import { selectGrid } from '../store/slices/gridSlice';
+import Gridsquare from './GridSquare';
 
 export default function Grid() {
   const array = useSelector(selectGrid);

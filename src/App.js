@@ -1,12 +1,12 @@
 import React from 'react';
-import './App.css';
-import Grid from './features/grid/Grid';
-import Score from './features/score/Score';
-import Gameover from './features/gameover/Gameover';
+import Gameover from './components/Gameover';
+import Grid from './components/Grid';
+import Score from './components/Score';
+import './index.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <Score />
       <Grid />
       <Gameover />
