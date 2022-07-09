@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { RootState } from '../store';
 
 export const scoreSlice = createSlice({
   name: 'score',
@@ -19,6 +20,6 @@ export const scoreSlice = createSlice({
 
 export const { incrementByAmount, resetValue } = scoreSlice.actions;
 
-export const selectScore = (state) => state.score.value;
+export const selectScore = (state: RootState) => state.score.value;
 
 export default scoreSlice.reducer;

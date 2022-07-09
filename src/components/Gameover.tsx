@@ -9,7 +9,7 @@ export default function Gameover() {
   const score = useSelector(selectScore);
   const [possibleMove, setPossibleMove] = useState(true);
 
-  const calculateIfGameOver = (array) => {
+  const calculateIfGameOver = (array: number[][]) => {
     for (let row = 0; row < 5; row++) {
       for (let col = 0; col < 5; col++) {
         if (row + 1 < 5 ? array[row][col] === array[row + 1][col] : false)
